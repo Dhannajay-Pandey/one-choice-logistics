@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Header />
-        {children}
+        <div className="pt-[100px]">{children}</div>
         <Footer />
       </body>
     </html>
