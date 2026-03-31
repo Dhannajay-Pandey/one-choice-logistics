@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <header className="w-full font-sans">
       {/* Top Bar */}
-      <div className="bg-[#0b132b] text-white text-sm py-2 px-4 md:px-8 flex justify-between items-center">
+      <div className="bg-[#0b132b] text-white text-sm py-2 px-10 lg:px-52 flex justify-between items-center">
         <div className="flex items-center space-x-6">
           {contactInfo.map((info) => (
             <div key={info.id} className="flex items-center">
@@ -58,7 +58,7 @@ export default function Header() {
       </div>
 
       {/* Main Navigation */}
-      <div className="bg-white py-4 px-4 md:px-8 flex justify-between items-center shadow-sm">
+      <div className="bg-white py-4 px-10 lg:px-52 flex justify-between items-center shadow-sm">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
