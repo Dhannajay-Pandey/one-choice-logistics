@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { HiOutlineEnvelope, HiOutlinePhone, HiOutlineXMark, HiBars3 } from "react-icons/hi2";
 
 const contactInfo = [
@@ -24,17 +25,18 @@ const languages = [
 ];
 
 const navLinks = [
-  { title: "Home", href: "/", active: true },
-  { title: "Services", href: "/services", active: false },
-  { title: "About Us", href: "/about", active: false },
-  { title: "Contact", href: "/contact", active: false },
-  { title: "Blog", href: "/blog", active: false },
-  { title: "FAQ", href: "/faq", active: false },
+  { title: "Home", href: "/" },
+  { title: "Services", href: "/services" },
+  { title: "About Us", href: "/about" },
+  { title: "Contact", href: "/contact" },
+  { title: "Blog", href: "/blog" },
+  { title: "FAQ", href: "/faq" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -101,7 +103,7 @@ export default function Header() {
               key={link.title}
               href={link.href}
               className={`text-sm font-medium transition-colors hover:text-red-500 ${
-                link.active ? "text-red-500" : "text-slate-700"
+                pathname === link.href ? "text-red-500" : "text-slate-700"
               }`}
             >
               {link.title}
@@ -152,7 +154,7 @@ export default function Header() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={`text-sm font-medium transition-colors hover:text-red-500 ${
-                link.active ? "text-red-500" : "text-slate-700"
+                pathname === link.href ? "text-red-500" : "text-slate-700"
               }`}
             >
               {link.title}
