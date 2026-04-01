@@ -4,12 +4,9 @@ import Hero from "@/components/HomePageComponents/Hero";
 import Services from "@/components/HomePageComponents/Services";
 import Testimonial from "@/components/HomePageComponents/Testimonial";
 import WhyChoose from "@/components/HomePageComponents/WhyChoose";
-import { GET } from "@/data/GetFreeQuote";
+import { quoteData } from "@/data/GetFreeQuote";
 
-export default async function Home() {
-  const res = await GET();
-  const quoteData = await res.json();
-
+export default function Home() {
   return (
     <main className="w-full min-h-screen">
       <div className="pt-10">
