@@ -8,7 +8,7 @@ export default function Testimonial() {
     <section className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="grid rounded-3xl overflow-hidden shadow-xl" style={{gridTemplateColumns: '30% 70%'}}>
+        <div className="grid rounded-3xl overflow-hidden shadow-xl" style={{gridTemplateColumns: '40% 60%'}}>
 
           {/* LEFT SIDE */}
           <div className="bg-gradient-to-r from-[#1e2a3a] to-[#2c3e50] flex items-center justify-center p-10 relative group">
@@ -40,10 +40,10 @@ export default function Testimonial() {
           <div className="bg-[#0b1a2f] text-white p-10 md:p-12 relative">
 
             {/* Quote Icon */}
-            <div className="text-red-500 text-5xl mb-4">❝</div>
+            <div className="text-red-500 text-5xl mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote w-12 h-12 text-red-500 mb-6 opacity-80"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg></div>
 
             {/* Quote */}
-            <p className="text-lg md:text-xl leading-relaxed text-gray-200 italic">
+            <p className="text-2xl md:text-3xl font-light leading-relaxed mb-8 italic text-slate-200">
               "{testimonial.quote}"
             </p>
 
@@ -53,7 +53,7 @@ export default function Testimonial() {
             </h3>
 
             {/* Role */}
-            <p className="text-blue-400 text-sm font-medium">
+            <p className="text-xl font-bold text-white">
               {testimonial.role}
             </p>
 
