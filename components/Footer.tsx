@@ -64,7 +64,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0b1c2c] text-gray-300 px-10 lg:px-52 py-12">
+    <footer className="bg-[#0b1c2c] text-gray-300">
+      <div className="container mx-auto px-4 py-12">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
         {/* BRAND */}
@@ -154,6 +155,7 @@ export default function Footer() {
             Terms of Service
           </a>
         </div>
+      </div>
       </div>
     </footer>
   );

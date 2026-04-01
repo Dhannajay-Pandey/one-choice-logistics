@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { HiOutlineEnvelope, HiOutlinePhone } from "react-icons/hi2";
+import { HiOutlineEnvelope, HiOutlinePhone, HiOutlineXMark, HiBars3 } from "react-icons/hi2";
 
 const contactInfo = [
   {
@@ -34,6 +34,7 @@ const navLinks = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -44,7 +45,8 @@ export default function Header() {
   return (
     <header className={`w-full font-sans fixed top-0 left-0 z-50 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
       {/* Top Bar */}
-      <div className={`bg-[#0b132b] text-white text-sm px-10 lg:px-52 flex justify-between items-center transition-all duration-300 ${scrolled ? "h-0 overflow-hidden py-0" : "py-2"}`}>
+      <div className={`bg-[#0b132b] text-white text-sm transition-all duration-300 ${scrolled ? "h-0 overflow-hidden py-0" : "py-2"}`}>
+        <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center space-x-6">
           {contactInfo.map((info) => (
             <div key={info.id} className="flex items-center">
@@ -67,10 +69,12 @@ export default function Header() {
             </span>
           ))}
         </div>
+        </div>
       </div>
 
       {/* Main Navigation */}
-      <div className="bg-white py-4 px-10 lg:px-52 flex justify-between items-center shadow-sm">
+      <div className="bg-white shadow-sm">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
@@ -90,7 +94,7 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Navigation Links + Button on right */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
           {navLinks.map((link) => (
             <Link
@@ -110,6 +114,58 @@ export default function Header() {
             Get a Quote
           </Link>
         </div>
+
+        {/* Hamburger Button */}
+        <button
+          className="md:hidden text-[#0b132b] text-2xl"
+          onClick={() => setMenuOpen(true)}
+        >
+          <HiBars3 />
+        </button>
+      </div>
+      </div>
+
+      {/* Mobile Sidebar Overlay */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Sidebar */}
+      <div
+        className={`fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-xl transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between px-5 py-4 border-b">
+          <span className="text-[#0b132b] font-bold text-lg">Menu</span>
+          <button onClick={() => setMenuOpen(false)} className="text-2xl text-gray-600">
+            <HiOutlineXMark />
+          </button>
+        </div>
+        <nav className="flex flex-col px-5 py-6 space-y-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.title}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className={`text-sm font-medium transition-colors hover:text-red-500 ${
+                link.active ? "text-red-500" : "text-slate-700"
+              }`}
+            >
+              {link.title}
+            </Link>
+          ))}
+          <Link
+            href="/quote"
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 bg-[#0b132b] hover:bg-[#15234b] text-white text-sm font-semibold py-2.5 px-6 rounded-full text-center transition-colors"
+          >
+            Get a Quote
+          </Link>
+        </nav>
       </div>
     </header>
   );

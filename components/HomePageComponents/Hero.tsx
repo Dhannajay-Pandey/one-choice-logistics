@@ -20,7 +20,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0a1a2f]/90 via-[#0a1a2f]/80 to-transparent"></div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-10 lg:px-52 max-w-5xl">
+      <div className="relative z-10 w-full">
+        <div className="container mx-auto px-8 py-40"> 
         
         {/* Badge */}
         <span className="inline-block bg-blue-600 text-white text-xs px-4 py-2 rounded-full mb-6 tracking-wide">
@@ -73,6 +74,7 @@ export default function HeroSection() {
             <p className="text-sm text-gray-400 mt-1">Client Support</p>
           </div>
 
+        </div>
         </div>
       </div>
     </section>
