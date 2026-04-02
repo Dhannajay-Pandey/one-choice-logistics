@@ -16,6 +16,7 @@ export const services = [
       "Strong operational presence in Guangzhou & Yiwu",
       "Complete document support: B/L, BESC, DPI",
     ],
+    Link: "/services/sea-freight",
   },
   {
     id: 2,

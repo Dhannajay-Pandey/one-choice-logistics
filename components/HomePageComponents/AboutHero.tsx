@@ -37,7 +37,7 @@ export default function AboutHero() {
               alt="Team Member"
               width={500}
               height={600}
-              className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover transition duration-500 "
             />
           </div>
 

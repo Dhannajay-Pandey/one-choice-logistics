@@ -37,7 +37,7 @@ export default function WhyChoose() {
             alt="Office"
             width={600}
             height={400}
-            className="rounded-2xl object-cover w-full h-full transition duration-500 group-hover:scale-105"
+            className="rounded-2xl object-cover w-full h-full"
           />
 
           {/* OVERLAY */}

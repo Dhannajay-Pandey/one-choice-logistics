@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { iconMap } from "@/utils/iconMap";
+import Link from "next/link";
 
 export default function ServiceCard({ service, reverse }: any) {
   const Icon = iconMap[service.icon];
@@ -58,7 +59,7 @@ export default function ServiceCard({ service, reverse }: any) {
           </h3>
 
           <ul className="space-y-3">
-            {service.features.map((item: string, i: number) => (
+          {service.features?.map((item: string, i: number) => (
               <li key={i} className="flex gap-3 text-slate-600">
                 <span className="bg-green-100 text-green-600 p-1 rounded-full text-xs mt-1">
                   ✔
@@ -71,10 +72,9 @@ export default function ServiceCard({ service, reverse }: any) {
 
         {/* Buttons */}
         <div className="flex gap-4">
-          <button className="px-6 py-2 rounded-full border border-slate-300 hover:bg-slate-50">
+          <Link href={`/services/${service.slug}`} className="px-6 py-2 rounded-full border border-slate-300 hover:bg-slate-50 text-slate-700">
             Learn More
-          </button>
-
+          </Link>
           <button className="px-6 py-2 rounded-full bg-slate-900 text-white hover:bg-slate-800 shadow">
             Get a Quote
           </button>
