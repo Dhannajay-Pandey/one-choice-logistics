@@ -1,5 +1,7 @@
 // data/serviceDetail.ts
 
+import { features } from "../whyChoose";
+
 export const SeaFreight = {
   title: "Sea Freight (FCL & LCL)",
   overview:
@@ -75,8 +77,60 @@ export const CustomsClearance = {
     { step: "STEP 5", title: "Release & Dispatch", desc: "Obtaining clearance and dispatching the shipment." },
   ],
 };
+
+export const WareHousing = {
+  title: "Warehousing & Distribution",
+  overview: "Our warehousing solutions provide secure, flexible storage options for your goods. Whether you need short-term transit storage or long-term inventory management, our facilities ensure your cargo is safe and ready for distribution.",   
+
+  features: [
+    "Secure storage solutions for air and sea cargo",
+    "Real-time photo documentation for every container",  
+    "Inventory control and stock tracking",
+    "Final-mile delivery coordination"
+  ],
+  benefits: [ 
+    "Security: State-of-the-art facilities with robust security measures.",
+    "Efficiency: Streamlined operations for quick turnaround times.",
+    "Flexibility: Customizable storage solutions to meet your needs.",  
+    "Integration: Seamless coordination with our logistics services for end-to-end solutions.",
+  ],
+  process: [  
+    { step: "STEP 1", title: "Receiving & Inspection", desc: "Careful receiving and inspection of goods upon arrival." },
+    { step: "STEP 2", title: "Storage & Management", desc: "Secure storage and real-time inventory management." },
+    { step: "STEP 3", title: "Order Processing", desc: "Efficient processing of orders for timely fulfillment." },    
+    { step: "STEP 4", title: "Packaging & Dispatch", desc: "Careful packaging and dispatch to final destinations." },
+  ],  
+  };
+
+export const Consulting = {
+  title: "Consulting Services",
+  overview: "We go beyond moving goods by helping you optimize your entire supply chain. Our consulting services identify inefficiencies, reduce costs, and improve the reliability of your logistics operations.",
+ 
+  features: [
+    "Route planning and freight optimization",
+    "Customized cargo consolidation strategies",
+    "Coordination between suppliers, forwarders, and shipping lines",
+    "Cost-reduction analysis"
+  ],
+  benefits: [
+    "Cost Reduction: Identifying savings in freight and duty.",
+    "Optimization: Better route planning and mode selection.",
+    "Risk Management: Strategies to mitigate supply chain disruptions.",
+    "Scalability: Designing supply chains that grow with your business."
+  ],
+  process: [
+    { step: "STEP 1", title: "Audit", desc: "Analyzing your current logistics operations and costs." },
+    { step: "STEP 2", title: "Strategy", desc: "Developing a tailored plan to improve efficiency." },
+    { step: "STEP 3", title: "Implementation", desc: "Helping you execute new processes and partnerships." },
+    { step: "STEP 4", title: "Review", desc: "Continuous monitoring and improvement." },
+  ],
+};
+
+
 export const serviceDetailMap: Record<string, any> = {
   "sea-freight": SeaFreight,
   "air-freight": AirFreight,
   "customs-clearance": CustomsClearance,
+  "warehousing": WareHousing,
+  "consulting": Consulting,
 };

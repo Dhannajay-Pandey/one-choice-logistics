@@ -14,7 +14,7 @@ export default function ServiceDetailsMainLayout({ data }: any) {
 
                     {/* Overview */}
                     <div>
-                        <h2 className="text-3xl font-bold border-l-4 border-red-500 pl-3 mb-3">
+                        <h2 className="text-3xl font-bold border-l-4 border-red-500 pl-3 mb-3 ">
                             Overview
                         </h2>
                         <p className="text-slate-600">
@@ -23,8 +23,8 @@ export default function ServiceDetailsMainLayout({ data }: any) {
                     </div>
 
                     {/* Features */}
-                    <div>
-                        <h2 className="text-3xl font-bold border-l-4 border-red-500 pl-3 mb-4">
+                    <div className="pt-10">
+                        <h2 className="text-3xl font-bold text-slate-900 mb-8 border-l-4 border-red-600 pl-4">
                             Key Features:
                         </h2>
 
@@ -49,7 +49,7 @@ export default function ServiceDetailsMainLayout({ data }: any) {
                     </div>
 
                     {/* Benefits */}
-                    <div>
+                    <div className="pt-10">
                         <h2 className="text-3xl font-bold border-l-4 border-red-500 pl-3 mb-4">
                             Key Benefits
                         </h2>
@@ -77,7 +77,7 @@ export default function ServiceDetailsMainLayout({ data }: any) {
                     </div>
 
                     {/* Process */}
-                    <div>
+                    <div className="pt-10">
                         <h2 className="text-3xl font-bold border-l-4 border-red-500 pl-3 mb-6">
                             Our Process
                         </h2>
@@ -129,20 +129,20 @@ export default function ServiceDetailsMainLayout({ data }: any) {
                 <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
 
                     {/* CTA Card */}
-                    <div className="bg-slate-900 text-white p-6 rounded-2xl shadow">
-                        <h3 className="font-bold text-lg mb-2">
+                    <div className="bg-slate-900 p-8 rounded-2xl text-white shadow-xl relative overflow-hidden">
+                        <h3 className="text-2xl font-bold mb-4">
                             Ready to ship?
                         </h3>
-                        <p className="text-sm text-slate-300 mb-4">
+                        <p className="text-slate-300 mb-8 leading-relaxed">
                             Contact our team today for a personalized quote tailored to your cargo needs.
                         </p>
 
-                        <button className="w-full bg-red-500 hover:bg-red-600 py-2 rounded-lg">
+                        <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 px-4 py-2 w-full bg-red-600 hover:bg-red-700 text-white h-14 text-lg font-bold shadow-lg hover:shadow-red-600/30 transition-all">
                             Get a Quote
                         </button>
 
-                        <p className="text-xs text-slate-400 mt-3">
-                            Secure & Reliable Handling
+                        <p className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-400">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check w-4 h-4"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>  Secure & Reliable Handling
                         </p>
                     </div>
 
