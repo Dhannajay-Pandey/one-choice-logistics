@@ -15,9 +15,9 @@ type Props = {
 
 export default function GlobalNetwork({ title, description, features }: Props) {
   return (
-    <section className="bg-gray-100 py-12">
+    <section className="bg-white-100 py-12 px-12">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="bg-[#0B1A33] rounded-3xl p-6 md:p-10 text-center text-white">
+        <div className="bg-[#0B1A33] rounded-3xl p-6 md:p-10 text-center text-white padding-90">
 
           {/* ICON */}
           <div className="flex justify-center mb-4">
@@ -33,16 +33,16 @@ export default function GlobalNetwork({ title, description, features }: Props) {
           <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-12">{description}</p>
 
           {/* MAP */}
-          <div className="bg-white rounded-2xl p-2 shadow-lg mb-8">
+          <div className="mb-16 bg-white rounded-3xl p-2 shadow-2xl">
             <NetworkMap />
           </div>
 
           {/* FEATURES */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
             {features.map((item, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
-                <h4 className="text-sm font-semibold mb-1">{item.title}</h4>
-                <p className="text-xs text-gray-300">{item.description}</p>
+              <div key={index} className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/10">
+                <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
+                <p className="text-slate-300 text-sm">{item.description}</p>
               </div>
             ))}
           </div>

@@ -6,7 +6,8 @@ import GlobalNetwork from '@/components/AboutPageComponents/GlobalNetwork';
 import { MissionVisionData } from '@/data/MissionVision';
 import { getAboutData } from '@/data/About';
 import { GlobalNetworkData } from '@/data/GlobalNetworkData';
-
+import Leadership from '@/components/AboutPageComponents/Leadership';
+import Leadershipdata from '@/data/Leadership';
 const AboutPage = async () => {
   const aboutData = await getAboutData();
 
@@ -30,6 +31,7 @@ const AboutPage = async () => {
           description={GlobalNetworkData.description}
           features={GlobalNetworkData.features}
         />
+        <Leadership data={Leadershipdata} />
     </main>
     </>
   )
