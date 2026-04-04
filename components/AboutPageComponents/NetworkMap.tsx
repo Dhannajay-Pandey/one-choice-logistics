@@ -30,14 +30,14 @@ const locations = [
 
 export default function NetworkMap() {
   return (
-    <div className="relative w-full h-[400px]">
+    <div className="relative w-full h-[500px]">
       
       {/* 🌍 MAP */}
       <MapContainer
         center={[20, 40]}
         zoom={2}
         scrollWheelZoom={false}
-        className="w-full h-full rounded-xl"
+        className="w-full h-full z-0"
       >
         <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
 
@@ -60,7 +60,7 @@ export default function NetworkMap() {
       </MapContainer>
 
       {/* 🧊 LEGEND OVERLAY */}
-      <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg z-[1000]">
+      <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg  z-0">
         <h4 className="font-bold text-slate-900 mb-2 text-sm">
           Network Map
         </h4>
