@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Testimonial() {
   return (
     <section className="py-16 bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="container mx-auto px-4">
 
         <div className="grid rounded-3xl overflow-hidden shadow-xl" style={{gridTemplateColumns: '40% 60%'}}>
 

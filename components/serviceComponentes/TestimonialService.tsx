@@ -12,7 +12,7 @@ export default function TestimonialSection() {
 
   return (
     <section className="bg-white py-20 border-t border-slate-100">
-      <div className="max-w-6xl mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 text-center">
         
         {/* Heading */}
         <p className="text-red-500 text-sm font-semibold uppercase mb-2">

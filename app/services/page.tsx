@@ -8,7 +8,7 @@ function ServicePage() {
   return (
     <main>
       <PageBanner />
-      <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
+      <div className="container mx-auto px-4 py-16 space-y-20">
         {services.map((service, index) => (
           <ServiceCard key={service.id} service={service} reverse={index % 2 !== 0} />
         ))}

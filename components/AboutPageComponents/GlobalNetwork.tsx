@@ -16,7 +16,7 @@ type Props = {
 export default function GlobalNetwork({ title, description, features }: Props) {
   return (
     <section className="bg-white-100 py-12 px-12">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="container mx-auto px-4">
         <div className="bg-[#0B1A33] rounded-3xl p-6 md:p-10 text-center text-white padding-90">
 
           {/* ICON */}

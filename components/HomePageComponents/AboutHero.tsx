@@ -27,7 +27,7 @@ export default function AboutHero() {
 
   return (
     <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
         {/* LEFT IMAGE */}
         <div className="relative group">

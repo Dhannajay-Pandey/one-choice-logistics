@@ -9,7 +9,7 @@ type Props = {
 export default function GetFreeQuote({ title, description, image }: Props) {
   return (
     <section className="bg-gradient-to-r from-[#b31217] to-[#e52d27] text-white">
-      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 items-center gap-10">
+      <div className="container mx-auto px-6 py-20 grid md:grid-cols-2 items-center gap-10">
         
         {/* LEFT CONTENT */}
         <div>

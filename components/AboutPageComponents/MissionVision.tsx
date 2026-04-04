@@ -11,7 +11,7 @@ type Props = {
 export default function MissionVision({ cards }: Props) {
   return (
     <section className="bg-white-100 py-12">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container mx-auto px-6">
 
         <div className="grid md:grid-cols-2 gap-6">
           

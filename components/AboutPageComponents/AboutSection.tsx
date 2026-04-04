@@ -21,7 +21,7 @@ export default function AboutSection({
 }: Props) {
   return (
     <section className="bg-white py-12">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container mx-auto px-6">
 
         {/* ✅ MAIN GRID FIXED */}
         <div className="grid lg:grid-cols-2 gap-10 items-start">

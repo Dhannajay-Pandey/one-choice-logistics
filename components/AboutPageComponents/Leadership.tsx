@@ -13,7 +13,7 @@ type Leader = {
 export default function Leadership() {
   return (
     <section className="bg-white-100 py-12 ">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="container mx-auto px-4">
 
         {/* Heading */}
         <div className="text-center mb-12">

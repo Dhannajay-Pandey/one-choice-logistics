@@ -7,7 +7,7 @@ import { CircleCheck, Star } from "lucide-react";
 export default function ServiceDetailsMainLayout({ data }: any) {
     return (
         <section className="bg-slate-100 py-16">
-            <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-10">
+            <div className="container mx-auto px-4 grid lg:grid-cols-3 gap-10">
 
                 {/* LEFT CONTENT */}
                 <div className="lg:col-span-2 space-y-10 ">
