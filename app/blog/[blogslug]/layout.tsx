@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog & Insights - One Choice Logistics",
+  title: "$[blogslug] - One Choice Logistics",
   description: "Logistics management platform",
 };
 

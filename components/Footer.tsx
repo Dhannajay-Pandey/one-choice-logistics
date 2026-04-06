@@ -1,6 +1,6 @@
 "use client";
 
-import { HiOutlineEnvelope, HiOutlineMapPin, HiOutlinePhone } from "react-icons/hi2";
+import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { footerData } from "@/data/header and Footer/header";
 
@@ -25,9 +25,9 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-4">{footerData.brand.description}</p>
             <div className="flex gap-4 text-lg">
               {footerData.brand.socials.map((social) => (
-                <a key={social.name} href={social.url} className="cursor-pointer hover:text-white transition" title={social.name}>
+                <Link key={social.name} href={social.url} className="cursor-pointer hover:text-white transition" title={social.name}>
                   {socialIcon(social.icon)}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -38,7 +38,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerData.links.map((link) => (
                 <li key={link.name}>
-                  <a href={link.url} className="hover:text-white transition">{link.name}</a>
+                  <Link href={link.url} className="hover:text-white transition">{link.name}</Link>
                 </li>
               ))}
             </ul>
@@ -50,7 +50,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerData.services.map((service) => (
                 <li key={service.name}>
-                  <a href={service.url} className="hover:text-white transition">{service.name}</a>
+                  <Link href={service.url} className="hover:text-white transition">{service.name}</Link>
                 </li>
               ))}
             </ul>
