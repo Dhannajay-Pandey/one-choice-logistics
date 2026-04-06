@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Service Page - One Choice Logistics",
+  title: "Blog & Insights - One Choice Logistics",
   description: "Logistics management platform",
 };
 
@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="pt-[40px]">
+    <div className="pt-[20px]">
       <div className="max-w-full mx-auto">
         {children}
       </div>

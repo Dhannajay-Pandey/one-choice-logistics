@@ -64,7 +64,7 @@ export default function BlogSection() {
       </div>
 
       {/* Grid */}
-      <div className="grid md:grid-cols-3 gap-6 pt-[34px]">
+      <div className="grid md:grid-cols-3 gap-6 pt-[34px] items-stretch">
         {filteredBlogs.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />
         ))}

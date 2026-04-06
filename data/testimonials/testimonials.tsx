@@ -31,4 +31,33 @@ export const testimonials = [
     rating: 5,
     initials: "AS",
   },
+  {
+    id: 4,
+    category: "sea",
+    name: "Fatou Ndiaye",
+    company: "Trade & Export Ltd",
+    message:
+      "The sea freight service from Shanghai to Dakar is reliable and cost-effective. They provide excellent tracking and communication throughout the journey.",
+    rating: 5,
+    initials: "FN",
+  },
+{   id: 5,
+    category: "transit",
+    name: "Oumar Ba",
+    company: "International Trading Co",
+    message:
+      "The sea freight service from Singapore to Dakar is outstanding. Their attention to detail and commitment to timely delivery is unmatched.",
+    rating: 5,
+    initials: "OB",
+  },
+  {
+    id: 6,
+    category: "transit",
+    name: "Amina Diallo",
+    company: "Export Plus Ltd",
+    message:
+      "Our transit shipments through multiple countries have always been seamless. The documentation and customs clearance are handled flawlessly.",
+    rating: 4,
+    initials: "AD",
+  },
 ];

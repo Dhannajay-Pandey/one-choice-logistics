@@ -13,7 +13,7 @@ type Blog = {
 export default function BlogCard({ blog }: { blog: Blog }) {
   return (
     <Link href={`/blog/${blog.slug}`}>
-    <div className="bg-white rounded-xl border shadow-sm overflow-hidden hover:shadow-md transition duration-300">
+    <div className="bg-white rounded-xl border shadow-sm overflow-hidden hover:shadow-md transition duration-300 flex flex-col h-full">
       
       {/* Image */}
       <div className="relative overflow-hidden">
@@ -30,14 +30,14 @@ export default function BlogCard({ blog }: { blog: Blog }) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-1">
         <p className="text-xs text-gray-400 mb-2">📅 {blog.date}</p>
 
         <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors line-clamp-2">
           {blog.title}
         </h3>
 
-        <p className="text-slate-600 text-sm mb-6 line-clamp-3 flex-grow">
+        <p className="text-slate-600 text-sm mb-6 line-clamp-3 flex-1">
           {blog.description}
         </p>
 
