@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 type Blog = {
+  slug: string;
   id: number;
   title: string;
   description: string;
@@ -9,14 +12,15 @@ type Blog = {
 
 export default function BlogCard({ blog }: { blog: Blog }) {
   return (
+    <Link href={`/blog/${blog.slug}`}>
     <div className="bg-white rounded-xl border shadow-sm overflow-hidden hover:shadow-md transition duration-300">
       
       {/* Image */}
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <img
           src={blog.image}
           alt={blog.title}
-          className="w-full h-[200px] object-cover"
+          className="w-full h-[200px] object-cover transition duration-500 hover:scale-110"
         />
 
         {/* Category */}
@@ -29,18 +33,19 @@ export default function BlogCard({ blog }: { blog: Blog }) {
       <div className="p-5">
         <p className="text-xs text-gray-400 mb-2">📅 {blog.date}</p>
 
-        <h3 className="font-semibold text-gray-900 mb-2 leading-snug">
+        <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors line-clamp-2">
           {blog.title}
         </h3>
 
-        <p className="text-sm text-gray-600 mb-4">
+        <p className="text-slate-600 text-sm mb-6 line-clamp-3 flex-grow">
           {blog.description}
         </p>
 
-        <button className="text-red-600 text-sm font-medium hover:underline">
+        <Link href={`/blog/${blog.slug}`} className="inline-flex items-center text-red-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
           Read Article →
-        </button>
+        </Link>
       </div>
     </div>
+    </Link>
   );
 }
