@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+   <div className="pt-[20px]">
       <div className="max-w-full mx-auto">
         {children}
       </div>

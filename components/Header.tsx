@@ -25,21 +25,22 @@ export default function Header() {
 
   return (
     <header className={`w-full font-sans fixed top-0 left-0 z-50 transition-shadow duration-300 ${scrolled ? "shadow-lg" : ""}`}>
-      {/* Top Bar */}
+
+      {/* Top Bar — hidden on mobile, visible md+ */}
       <div className={`bg-[#0b132b] text-white text-sm transition-all duration-300 ${scrolled ? "h-0 overflow-hidden py-0" : "py-2"}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-6">
             {contactInfo.map((info) => (
               <div key={info.id} className="flex items-center">
                 {getIcon(info.type)}
-                <span className="text-gray-300">{info.text}</span>
+                <span className="text-gray-300 text-xs lg:text-sm">{info.text}</span>
               </div>
             ))}
           </div>
-          <div className="flex items-center space-x-3 text-sm">
+          <div className="flex items-center space-x-3 ml-auto">
             {languages.map((lang, idx) => (
               <span key={lang.code} className="flex items-center">
-                <button className={`font-semibold transition-colors ${lang.active ? "text-white" : "text-gray-500 hover:text-gray-300"}`}>
+                <button className={`font-semibold transition-colors text-xs sm:text-sm ${lang.active ? "text-white" : "text-gray-500 hover:text-gray-300"}`}>
                   {lang.code}
                 </button>
                 {idx < languages.length - 1 && <span className="text-gray-600 mx-2">|</span>}
@@ -51,16 +52,25 @@ export default function Header() {
 
       {/* Main Navigation */}
       <div className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/logo.jpg" alt="One Choice Logistics Logo" width={140} height={60} className="rounded-full transition-transform duration-300 ease-in-out hover:scale-110" />
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex justify-between items-center">
+
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2 shrink-0">
+            <Image
+              src="/logo.jpg"
+              alt="One Choice Logistics Logo"
+              width={100}
+              height={45}
+              className="rounded-full transition-transform duration-300 ease-in-out hover:scale-110 sm:w-[130px] md:w-[140px]"
+            />
             <div className="flex flex-col">
-              <span className="text-red-600 font-bold text-xl uppercase tracking-wider leading-tight">One Choice</span>
-              <span className="text-blue-500 font-bold text-xs uppercase tracking-[0.2em] leading-none">Logistics</span>
+              <span className="text-red-600 font-bold text-sm sm:text-lg md:text-xl uppercase tracking-wider leading-tight">One Choice</span>
+              <span className="text-blue-500 font-bold text-[9px] sm:text-[11px] md:text-xs uppercase tracking-[0.2em] leading-none">Logistics</span>
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-5 lg:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.title}
@@ -70,24 +80,38 @@ export default function Header() {
                 {link.title}
               </Link>
             ))}
-            <Link href="/contact" className="bg-[#0b132b] hover:bg-[#15234b] text-white text-sm font-semibold py-2.5 px-6 rounded-full transition-colors">
+            <Link href="/contact" className="bg-[#0b132b] hover:bg-[#15234b] text-white text-sm font-semibold py-2.5 px-5 rounded-full transition-colors whitespace-nowrap">
               Get a Quote
             </Link>
           </div>
 
-          <button className="md:hidden text-[#0b132b] text-2xl" onClick={() => setMenuOpen(true)}>
+          {/* Mobile Hamburger */}
+          <button className="md:hidden text-[#0b132b] text-2xl p-1" onClick={() => setMenuOpen(true)}>
             <HiBars3 />
           </button>
         </div>
       </div>
 
+      {/* Mobile Overlay */}
       {menuOpen && <div className="fixed inset-0 bg-black/50 z-40" onClick={() => setMenuOpen(false)} />}
 
+      {/* Mobile Drawer */}
       <div className={`fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-xl transform transition-transform duration-300 ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="flex items-center justify-between px-5 py-4 border-b">
           <span className="text-[#0b132b] font-bold text-lg">Menu</span>
           <button onClick={() => setMenuOpen(false)} className="text-2xl text-gray-600"><HiOutlineXMark /></button>
         </div>
+
+        {/* Contact info inside drawer on mobile */}
+        <div className="px-5 py-3 border-b bg-[#0b132b]/5">
+          {contactInfo.map((info) => (
+            <div key={info.id} className="flex items-center py-1">
+              {getIcon(info.type)}
+              <span className="text-slate-600 text-xs">{info.text}</span>
+            </div>
+          ))}
+        </div>
+
         <nav className="flex flex-col px-5 py-6 space-y-4">
           {navLinks.map((link) => (
             <Link

@@ -30,16 +30,16 @@ export default function BlogSection() {
     <div className="max-w-7xl mx-auto px-4 py-[-300pz] pt-3 pb-12">
       
       {/* Top Bar */}
-      <div className="relative z-20 -mt-12">
-        <div className="bg-white rounded-2xl shadow-md border border-gray-200 px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="relative z-20 -mt-8 md:-mt-12">
+        <div className="bg-white rounded-2xl shadow-md border border-gray-200 px-3 sm:px-4 py-4 flex flex-col gap-4">
           
           {/* Tabs */}
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex gap-2 flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-medium border transition ${
+                className={`px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium border transition ${
                   active === cat
                     ? "bg-red-600 text-white border-red-600"
                     : "bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200"
@@ -64,7 +64,7 @@ export default function BlogSection() {
       </div>
 
       {/* Grid */}
-      <div className="grid md:grid-cols-3 gap-6 pt-[34px] items-stretch">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-[34px] items-stretch">
         {filteredBlogs.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />
         ))}

@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 export default function WhyChoose() {
   const [count, setCount] = useState(0);
 
-  // Animated counter
   useEffect(() => {
     let start = 0;
     const end = 100;
@@ -27,65 +26,53 @@ export default function WhyChoose() {
   }, []);
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <section className="py-10 sm:py-16 bg-gray-50">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
 
         {/* LEFT IMAGE */}
         <div className="relative group">
           <Image
-            src="/images/whychoose.jpg" // replace with your image
+            src="/images/whychoose.jpg"
             alt="Office"
             width={600}
             height={400}
-            className="rounded-2xl object-cover w-full h-full"
+            className="rounded-2xl object-cover w-full h-[250px] sm:h-[350px] md:h-full"
           />
-
-          {/* OVERLAY */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl"></div>
-
-          {/* TEXT */}
-          <div className="absolute bottom-6 left-6 text-white">
-            <h2 className="text-3xl font-bold">{count}%</h2>
-            <p className="text-sm">
-              Commitment to transparency and accountability
-            </p>
+          <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold">{count}%</h2>
+            <p className="text-xs sm:text-sm">Commitment to transparency and accountability</p>
           </div>
         </div>
 
         {/* RIGHT CONTENT */}
         <div>
-          <p className="text-red-500 font-semibold uppercase">
+          <p className="text-red-500 font-semibold uppercase text-sm sm:text-base">
             Why Choose One Choice Logistics
           </p>
 
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 leading-snug">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 leading-snug">
             Strategic Logistics <br /> Built on Trust
           </h2>
 
-          <p className="text-gray-600 mt-4">
+          <p className="text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base">
             20 years of expertise. Strong global network connecting Guangzhou
             and Yiwu for efficient operations.
           </p>
 
-          {/* FEATURES */}
-          <div className="grid sm:grid-cols-2 gap-6 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5 sm:mt-6">
             {features.map((item, index) => (
               <div
                 key={index}
-                className="flex gap-4 group transition duration-300 hover:translate-x-2"
+                className="flex gap-3 sm:gap-4 group transition duration-300 hover:translate-x-2"
               >
-                {/* ICON */}
-                <div className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-blue-500 text-blue-500 
+                <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center rounded-full border-2 border-blue-500 text-blue-500
                 group-hover:bg-blue-500 group-hover:text-white transition">
-                  ✓
+                  &#10003;
                 </div>
-
-                {/* TEXT */}
                 <div>
-                  <h3 className="font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-600">
-                    {item.desc}
-                  </p>
+                  <h3 className="font-semibold text-sm sm:text-base">{item.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600">{item.desc}</p>
                 </div>
               </div>
             ))}

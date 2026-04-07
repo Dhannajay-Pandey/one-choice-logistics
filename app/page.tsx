@@ -9,12 +9,10 @@ import { quoteData } from "@/data/GetFreeQuote";
 export default function Home() {
   return (
     <main className="w-full min-h-screen">
-      <div className="pt-10">
-        <Hero />
-      </div>
+      <Hero />
       <Services />
       <WhyChoose />
-      <AboutHero /> 
+      <AboutHero />
       <Testimonial />
       <GetFreeQuote {...quoteData} />
     </main>

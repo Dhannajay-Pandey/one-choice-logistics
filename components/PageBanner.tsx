@@ -16,7 +16,7 @@ export default function PageBanner() {
   const title = formatTitle(pathname);
 
   return (
-    <section className="relative w-full h-[300px] flex items-center justify-center text-center text-white">
+    <section className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] flex items-center justify-center text-center text-white">
       
       {/* Background Image */}
       <div
@@ -31,7 +31,7 @@ export default function PageBanner() {
 
       {/* Content */}
       <div className="relative z-10 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold">{title}</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold">{title}</h1>
 
         <p className="mt-4 text-sm md:text-lg max-w-2xl mx-auto">
           From origin to destination, we provide the expertise and infrastructure

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { stats } from "@/data/stats";
 
@@ -26,42 +27,37 @@ export default function AboutHero() {
   }, []);
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+    <section className="py-10 md:py-16 bg-gray-50">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
 
         {/* LEFT IMAGE */}
         <div className="relative group">
           <div className="rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/images/abouthero.png" // replace with your image
+              src="/images/abouthero.png"
               alt="Team Member"
               width={500}
               height={600}
-              className="w-full h-full object-cover transition duration-500 "
+              className="w-full h-full object-cover transition duration-500"
             />
           </div>
-
-          {/* Glow Effect */}
           <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-blue-200 to-purple-200 opacity-0 group-hover:opacity-40 blur-xl transition duration-500 -z-10"></div>
         </div>
 
         {/* RIGHT CONTENT */}
         <div>
-          {/* Badge */}
           <span className="inline-block bg-red-100 text-red-500 px-4 py-1 rounded-full text-sm font-medium">
             Your Trusted Logistics Partner
           </span>
 
-          {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mt-4 leading-tight">
             Committed to Excellence,
             <br />
             Driven by Results
           </h2>
 
-          {/* Description */}
-          <p className="text-gray-600 mt-6">
-            At One Choice Logistics, we don’t just move cargo—we build lasting
+          <p className="text-gray-600 mt-4 text-sm sm:text-base">
+            At One Choice Logistics, we don&apos;t just move cargo&mdash;we build lasting
             partnerships. Our professional team provides end-to-end logistics
             solutions with real-time visibility, dedicated support, and a
             commitment to excellence that has earned the trust of businesses
@@ -69,27 +65,30 @@ export default function AboutHero() {
           </p>
 
           {/* STATS */}
-          <div className="grid sm:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6">
             {stats.map((item, index) => (
               <div
                 key={index}
-                className="p-6 bg-white rounded-xl border border-gray-200 shadow-sm 
-                transition duration-300 hover:shadow-lg hover:-translate-y-1"
+                className="p-4 sm:p-6 bg-white rounded-xl border border-gray-200 shadow-sm transition duration-300 hover:shadow-lg hover:-translate-y-1"
               >
-                <h3 className={`text-2xl font-bold ${item.color}`}>
+                <h3 className={`text-xl sm:text-2xl font-bold ${item.color}`}>
                   {item.value}
                 </h3>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-xs sm:text-sm text-gray-600 mt-1">
                   {item.label}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* BUTTON */}
-          <button className="mt-8 bg-red-600 text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-sky-800 transition">
-            Get a Quote →
-          </button>
+          <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
+            <Link href="/contact" className="bg-red-600 text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-sky-800 transition text-sm sm:text-base">
+              Get a Quote &rarr;
+            </Link>
+            <Link href="/about" className="border-2 border-red-600 text-red-600 px-6 py-3 rounded-full flex items-center gap-2 hover:bg-red-600 hover:text-white transition text-sm sm:text-base">
+              About Us &rarr;
+            </Link>
+          </div>
         </div>
       </div>
     </section>

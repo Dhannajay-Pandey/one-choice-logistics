@@ -12,7 +12,6 @@ type Props = {
 export default function AboutBradcrums({ title, description, bgImage }: Props) {
   const pathname = usePathname();
 
-  // Generate breadcrumbs
   const pathSegments = pathname.split("/").filter(Boolean);
 
   const breadcrumbs = pathSegments.map((segment, index) => {
@@ -25,33 +24,28 @@ export default function AboutBradcrums({ title, description, bgImage }: Props) {
 
   return (
     <div
-      className="relative w-full h-[300px] flex items-center"
+      className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] flex items-center"
       style={{
         backgroundImage: `url(${bgImage || "/hero.jpg"})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 to-blue-900/60"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 text-white">
-       
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 text-white">
 
-        {/* Title */}
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-3 sm:mb-6">
           {title}
         </h1>
 
-        {/* Description */}
         {description && (
-          <p className="text-xl text-slate-300 max-w-2xl">
+          <p className="text-sm sm:text-base md:text-xl text-slate-300 max-w-2xl">
             {description}
           </p>
         )}
 
-         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm mb-4 text-gray-300 mt-4">
+        <div className="flex items-center gap-2 text-xs sm:text-sm mb-4 text-gray-300 mt-3 sm:mt-4 flex-wrap">
           <Link href="/">Home</Link>
           {breadcrumbs.map((item, i) => (
             <span key={i} className="flex items-center gap-2">
@@ -63,8 +57,6 @@ export default function AboutBradcrums({ title, description, bgImage }: Props) {
           ))}
         </div>
       </div>
-      
     </div>
   );
 }
- 
