@@ -28,7 +28,7 @@ export default function Services() {
               key={index}
               href={`/services/${item.slug}`}
               className="group relative bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 text-left
-              transition-all duration-500 hover:shadow-xl hover:-translate-y-2 block"
+              transition-all transition-all duration-300 hover:border-red-500"
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-xl bg-blue-50 text-xl sm:text-2xl
               transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-100">
