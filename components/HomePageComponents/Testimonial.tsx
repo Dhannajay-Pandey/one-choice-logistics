@@ -1,8 +1,9 @@
 "use client";
 
-import { testimonial } from "@/data/testimonial";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 export default function Testimonial() {
+  const { t } = useLanguage();
   return (
     <section className="py-10 sm:py-16 bg-gray-100">
       <div className="container mx-auto px-4">
@@ -13,7 +14,7 @@ export default function Testimonial() {
           <div className="bg-gradient-to-r from-[#1e2a3a] to-[#2c3e50] flex items-center justify-center p-8 md:p-10 relative group min-h-[180px] md:min-h-0 md:w-[40%]">
             <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md transition duration-500 group-hover:scale-110">
               <span className="text-5xl sm:text-6xl text-white/50"> 
-              <Image src="/images/team/owner.jpeg" alt={testimonial.name} width={200} height={200} className="rounded-full border-2 border-white/20" />
+              <Image src="/images/team/owner.jpeg" alt={t("testimonial.name")} width={200} height={200} className="rounded-full border-2 border-white/20" />
               </span>
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 blur-2xl transition"></div>
@@ -28,19 +29,19 @@ export default function Testimonial() {
             </svg>
 
             <p className="text-base sm:text-xl md:text-2xl lg:text-3xl font-light leading-relaxed mb-5 sm:mb-6 italic text-slate-200">
-              &ldquo;{testimonial.quote}&rdquo;
+              &ldquo;{t("testimonial.quote")}&rdquo;
             </p>
 
             <h3 className="mt-4 sm:mt-6 text-base sm:text-lg font-semibold">
-              {testimonial.name}
+              {t("testimonial.name")}
             </h3>
 
             <p className="text-base sm:text-xl font-bold text-white">
-              {testimonial.role}
+              {t("testimonial.role")}
             </p>
 
             <p className="text-gray-400 text-xs sm:text-sm mt-3 sm:mt-4 leading-relaxed">
-              {testimonial.desc}
+              {t("testimonial.desc")}
             </p>
 
             <div className="absolute inset-0 border border-white/5 rounded-3xl pointer-events-none"></div>

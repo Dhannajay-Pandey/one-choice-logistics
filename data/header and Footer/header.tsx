@@ -9,12 +9,12 @@ export const languages = [
 ];
 
 export const navLinks = [
-  { title: "Home", href: "/" },
-  { title: "Services", href: "/services" },
-  { title: "About Us", href: "/about" },
-  { title: "Contact", href: "/contact" },
-  { title: "Blog", href: "/blog" },
-  { title: "FAQ", href: "/faq" },
+  { title: "Home", href: "/", key: "home" },
+  { title: "Services", href: "/services", key: "services" },
+  { title: "About Us", href: "/about", key: "about" },
+  { title: "Contact", href: "/contact", key: "contact" },
+  { title: "Blog", href: "/blog", key: "blog" },
+  { title: "FAQ", href: "/faq", key: "faq" },
 ];
 
 export const footerData = {

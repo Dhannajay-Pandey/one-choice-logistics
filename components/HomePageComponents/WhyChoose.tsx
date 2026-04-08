@@ -1,10 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { features } from "@/data/whyChoose";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/contexts/LanguageContext";
 
 export default function WhyChoose() {
+  const { language } = useLanguage();
+  const wc = translations[language].whyChoose;
+  const features = wc.features;
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -41,23 +45,22 @@ export default function WhyChoose() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl"></div>
           <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 text-white">
             <h2 className="text-2xl sm:text-3xl font-bold">{count}%</h2>
-            <p className="text-xs sm:text-sm">Commitment to transparency and accountability</p>
+            <p className="text-xs sm:text-sm">{wc.commitment}</p>
           </div>
         </div>
 
         {/* RIGHT CONTENT */}
         <div>
           <p className="text-red-500 font-semibold uppercase text-sm sm:text-base">
-            Why Choose One Choice Logistics
+            {wc.badge}
           </p>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2 leading-snug">
-            Strategic Logistics <br /> Built on Trust
+            {wc.title}
           </h2>
 
           <p className="text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base">
-            20 years of expertise. Strong global network connecting Guangzhou
-            and Yiwu for efficient operations.
+            {wc.subtitle}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5 sm:mt-6">

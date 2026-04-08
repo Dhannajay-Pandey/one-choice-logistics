@@ -5,12 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { HiOutlineEnvelope, HiOutlinePhone, HiOutlineXMark, HiBars3 } from "react-icons/hi2";
-import { contactInfo, languages, navLinks } from "@/data/header and Footer/header";
+import { contactInfo, navLinks } from "@/data/header and Footer/header";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -38,12 +40,15 @@ export default function Header() {
             ))}
           </div>
           <div className="flex items-center space-x-3 ml-auto">
-            {languages.map((lang, idx) => (
-              <span key={lang.code} className="flex items-center">
-                <button className={`font-semibold transition-colors text-xs sm:text-sm ${lang.active ? "text-white" : "text-gray-500 hover:text-gray-300"}`}>
-                  {lang.code}
+            {(["en", "fr"] as const).map((lang, idx) => (
+              <span key={lang} className="flex items-center">
+                <button
+                  onClick={() => setLanguage(lang)}
+                  className={`font-semibold transition-colors text-xs sm:text-sm ${language === lang ? "text-white" : "text-gray-500 hover:text-gray-300"}`}
+                >
+                  {lang.toUpperCase()}
                 </button>
-                {idx < languages.length - 1 && <span className="text-gray-600 mx-2">|</span>}
+                {idx === 0 && <span className="text-gray-600 mx-2">|</span>}
               </span>
             ))}
           </div>
@@ -77,11 +82,11 @@ export default function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-red-500 ${pathname === link.href ? "text-red-500" : "text-slate-700"}`}
               >
-                {link.title}
+                {t(`nav.${link.key}`)}
               </Link>
             ))}
             <Link href="/contact" className="bg-[#0b132b] hover:bg-[#15234b] text-white text-sm font-semibold py-2.5 px-5 rounded-full transition-colors whitespace-nowrap">
-              Get a Quote
+              {t("nav.getQuote")}
             </Link>
           </div>
 
@@ -120,11 +125,11 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               className={`text-sm font-medium transition-colors hover:text-red-500 ${pathname === link.href ? "text-red-500" : "text-slate-700"}`}
             >
-              {link.title}
+              {t(`nav.${link.key}`)}
             </Link>
           ))}
           <Link href="/contact" onClick={() => setMenuOpen(false)} className="mt-2 bg-[#0b132b] hover:bg-[#15234b] text-white text-sm font-semibold py-2.5 px-6 rounded-full text-center transition-colors">
-            Get a Quote
+            {t("nav.getQuote")}
           </Link>
         </nav>
       </div>

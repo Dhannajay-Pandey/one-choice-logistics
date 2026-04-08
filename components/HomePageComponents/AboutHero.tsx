@@ -1,30 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { stats } from "@/data/stats";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/contexts/LanguageContext";
 
 export default function AboutHero() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let start = 0;
-    const end = 98;
-    const duration = 1500;
-    const increment = end / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        start = end;
-        clearInterval(timer);
-      }
-      setCount(Math.floor(start));
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, []);
+  const { language, t } = useLanguage();
+  const stats = translations[language].aboutHero.stats;
 
   return (
     <section className="py-10 md:py-16 bg-gray-50">
@@ -47,21 +30,17 @@ export default function AboutHero() {
         {/* RIGHT CONTENT */}
         <div>
           <span className="inline-block bg-red-100 text-red-500 px-4 py-1 rounded-full text-sm font-medium">
-            Your Trusted Logistics Partner
+            {t("aboutHero.badge")}
           </span>
 
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mt-4 leading-tight">
-            Committed to Excellence,
+            {t("aboutHero.title1")}
             <br />
-            Driven by Results
+            {t("aboutHero.title2")}
           </h2>
 
           <p className="text-gray-600 mt-4 text-sm sm:text-base">
-            At One Choice Logistics, we don&apos;t just move cargo&mdash;we build lasting
-            partnerships. Our professional team provides end-to-end logistics
-            solutions with real-time visibility, dedicated support, and a
-            commitment to excellence that has earned the trust of businesses
-            across West Africa.
+            {t("aboutHero.desc")}
           </p>
 
           {/* STATS */}
@@ -83,10 +62,10 @@ export default function AboutHero() {
 
           <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
             <Link href="/contact" className="bg-red-600 text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-sky-800 transition text-sm sm:text-base">
-              Get a Quote &rarr;
+              {t("aboutHero.cta1")} &rarr;
             </Link>
             <Link href="/about" className="border-2 border-red-600 text-red-600 px-6 py-3 rounded-full flex items-center gap-2 hover:bg-red-600 hover:text-white transition text-sm sm:text-base">
-              About Us &rarr;
+              {t("aboutHero.cta2")} &rarr;
             </Link>
           </div>
         </div>

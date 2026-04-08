@@ -4,7 +4,6 @@ import Hero from "@/components/HomePageComponents/Hero";
 import Services from "@/components/HomePageComponents/Services";
 import Testimonial from "@/components/HomePageComponents/Testimonial";
 import WhyChoose from "@/components/HomePageComponents/WhyChoose";
-import { quoteData } from "@/data/GetFreeQuote";
 
 export default function Home() {
   return (
@@ -14,7 +13,7 @@ export default function Home() {
       <WhyChoose />
       <AboutHero />
       <Testimonial />
-      <GetFreeQuote {...quoteData} />
+      <GetFreeQuote image="/images/boy.png" />
     </main>
   );
 }

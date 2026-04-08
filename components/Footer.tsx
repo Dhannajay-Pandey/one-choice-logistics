@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { footerData } from "@/data/header and Footer/header";
+import { useLanguage, translations } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { language } = useLanguage();
+  const ft = translations[language].footer;
   const socialIcon = (name: string) => {
     switch (name.toLowerCase()) {
       case "facebook": return <FaFacebookF />;
@@ -23,7 +26,7 @@ export default function Footer() {
           {/* BRAND */}
           <div className="sm:col-span-2 md:col-span-1">
             <h2 className="text-white text-xl font-semibold mb-4">{footerData.brand.name}</h2>
-            <p className="text-sm leading-relaxed mb-4">{footerData.brand.description}</p>
+            <p className="text-sm leading-relaxed mb-4">{ft.description}</p>
             <div className="flex gap-4 text-lg">
               {footerData.brand.socials.map((social) => (
                 <Link key={social.name} href={social.url} className="cursor-pointer hover:text-white transition" title={social.name}>
@@ -35,9 +38,9 @@ export default function Footer() {
 
           {/* QUICK LINKS */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-4">{ft.quickLinks}</h3>
             <ul className="space-y-2 text-sm">
-              {footerData.links.map((link) => (
+              {ft.links.map((link) => (
                 <li key={link.name}>
                   <Link href={link.url} className="hover:text-white transition">{link.name}</Link>
                 </li>
@@ -47,9 +50,9 @@ export default function Footer() {
 
           {/* SERVICES */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Services</h3>
+            <h3 className="text-white font-semibold mb-4">{ft.ourServices}</h3>
             <ul className="space-y-2 text-sm">
-              {footerData.services.map((service) => (
+              {ft.serviceLinks.map((service) => (
                 <li key={service.name}>
                   <Link href={service.url} className="hover:text-white transition">{service.name}</Link>
                 </li>
@@ -59,14 +62,14 @@ export default function Footer() {
 
           {/* CONTACT */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-white font-semibold mb-4">{ft.contactUs}</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-red-500 shrink-0 mt-0.5">
                   <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
                   <circle cx="12" cy="10" r="3"/>
                 </svg>
-                <span className="break-words">{footerData.contact.address}</span>
+                <span className="break-words">{ft.address}</span>
               </li>
               <li className="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-red-500 shrink-0">
@@ -88,10 +91,10 @@ export default function Footer() {
 
         {/* BOTTOM */}
         <div className="border-t border-gray-700 mt-8 md:mt-10 pt-5 md:pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-gray-400 text-center sm:text-left">
-          <p>&copy; {new Date().getFullYear()}-{new Date().getFullYear() + 1} One Choice Logistics (SARL). All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()}-{new Date().getFullYear() + 1} One Choice Logistics (SARL). {ft.copyright}</p>
           <div className="flex gap-4 sm:gap-6">
-            <a href="#" className="hover:text-white transition">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition">Terms of Service</a>
+            <a href="#" className="hover:text-white transition">{ft.privacy}</a>
+            <a href="#" className="hover:text-white transition">{ft.terms}</a>
           </div>
         </div>
 

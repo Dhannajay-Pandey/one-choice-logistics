@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import { testimonials } from "@/data/testimonials/testimonials";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/contexts/LanguageContext";
 
 export default function TestimonialSection() {
   const [activeTab, setActiveTab] = useState("air");
+  const { language, t } = useLanguage();
+  const tabs = translations[language].testimonialService.tabs;
 
   const filtered = testimonials.filter((item) => item.category === activeTab);
 
@@ -13,30 +17,28 @@ export default function TestimonialSection() {
       <div className="container mx-auto px-4 text-center">
 
         <p className="text-red-500 text-sm font-semibold uppercase mb-2">
-          Client Success Stories
+          {t("testimonialService.badge")}
         </p>
 
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">
-          Trusted by Businesses Across West Africa
+          {t("testimonialService.title")}
         </h2>
 
         <p className="text-slate-600 max-w-2xl mx-auto mb-8 sm:mb-10 text-sm sm:text-base">
-          See what our partners have to say about our commitment to efficiency and reliability.
+          {t("testimonialService.subtitle")}
         </p>
 
         {/* Tabs */}
         <div className="flex justify-center gap-2 mb-8 sm:mb-12 flex-wrap">
-          {["sea", "air", "transit"].map((tab) => (
+          {(["sea", "air", "transit"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm capitalize transition ${
-                activeTab === tab
-                  ? "bg-white shadow text-slate-900"
-                  : "bg-slate-100 text-slate-500"
+                activeTab === tab ? "bg-white shadow text-slate-900" : "bg-slate-100 text-slate-500"
               }`}
             >
-              {tab} Freight
+              {tabs[tab]}
             </button>
           ))}
         </div>
@@ -44,20 +46,13 @@ export default function TestimonialSection() {
         {/* Cards */}
         <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8">
           {filtered.map((item) => (
-            <div
-              key={item.id}
-              className="bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-100 text-left relative"
-            >
+            <div key={item.id} className="bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-100 text-left relative">
               <div className="flex mb-3 sm:mb-4">
                 {Array.from({ length: item.rating }).map((_, i) => (
                   <span key={i} className="text-yellow-400">&#9733;</span>
                 ))}
               </div>
-
-              <p className="text-slate-700 italic mb-4 sm:mb-6 text-sm sm:text-base">
-                &ldquo;{item.message}&rdquo;
-              </p>
-
+              <p className="text-slate-700 italic mb-4 sm:mb-6 text-sm sm:text-base">&ldquo;{item.message}&rdquo;</p>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600 text-sm">
                   {item.initials}
