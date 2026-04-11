@@ -317,7 +317,6 @@ export const translations = {
       title1: "Committed to Excellence,",
       title2: "Driven by Results",
       desc: "Our professional team provides end-to-end logistics solutions with real-time visibility, dedicated support, and a commitment to excellence that has earned the trust of businesses across West Africa.",
-      desc: "At One Choice Logistics, we don't just move cargo—we build lasting partnerships. Our professional team provides end-to-end logistics solutions with real-time visibility, dedicated support, and a commitment to excellence that has earned the trust of businesses across West Africa.",
       cta1: "Get a Quote",
       cta2: "About Us",
       stats: [
@@ -327,14 +326,14 @@ export const translations = {
       ],
     },
     testimonial: {
-      quote: "",
+      
       quote: "At One Choice Logistics, we don't just move cargo  we move trust, efficiency, and long-term value for your business.",
       name: "Mrs. Fofana Mame Ndoumbé Diène",
       role: "General Director, ONE CHOICE LOGISTICS",
       desc: "With over 20 years of expertise in international logistics and supply chain management, Mrs. Diène brings visionary leadership to One Choice Logistics. Her commitment to client satisfaction has positioned the company as a rising force in West Africa's freight sector.",
     },
     footer: {
-      description: "",
+     
       description: "At One Choice Logistics, we don't just move cargo — we move trust, efficiency, and long-term value for your business.",
       quickLinks: "Quick Links", ourServices: "Our Services", contactUs: "Contact Us",
       address: "42, Rue Tolbiac, Immeuble El Hadj M. Niang, Plateau, Dakar, Senegal",
