@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { faqData } from "@/data/faqData";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/contexts/LanguageContext";
 import { ChevronDown, CircleHelp, Search } from "lucide-react";
 import Link from "next/link";
 
 export default function FaqPage() {
   const [openIndex, setOpenIndex] = useState<string | null>(null);
   const [search, setSearch] = useState("");
+  const { language } = useLanguage();
+  const f = translations[language].faq;
 
   return (
     <main className="flex-grow">
@@ -21,15 +24,17 @@ export default function FaqPage() {
           />
           <div className="container mx-auto px-4 relative z-10 text-center">
             <CircleHelp className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 text-sky-500 mx-auto mb-3 sm:mb-6 opacity-80" />
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-6">Knowledge Hub</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-6">
+              {f.banner.title}
+            </h1>
             <p className="text-sm sm:text-base md:text-xl text-slate-300 max-w-2xl mx-auto mb-5 sm:mb-8">
-              Everything you need to know about shipping with One Choice Logistics. Can&apos;t find what you&apos;re looking for? Contact our team.
+              {f.banner.subtitle}
             </p>
             <div className="max-w-xl mx-auto relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search for answers..."
+                placeholder={f.banner.searchPlaceholder}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full h-12 sm:h-14 pl-11 sm:pl-12 pr-5 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-slate-400 focus:outline-none focus:bg-white/20 focus:ring-1 focus:ring-sky-500 text-sm"
@@ -42,8 +47,8 @@ export default function FaqPage() {
         <div className="container mx-auto px-4 py-8 sm:py-12 md:py-20 max-w-4xl">
           <div className="bg-white p-4 sm:p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 mb-8 sm:mb-12">
             <div className="space-y-8 sm:space-y-10">
-              {faqData.map((section, si) => {
-                const matchedQuestions = search
+              {f.sections.map((section, si) => {
+                const matched = search
                   ? section.questions.filter(
                       (q) =>
                         q.question.toLowerCase().includes(search.toLowerCase()) ||
@@ -51,7 +56,7 @@ export default function FaqPage() {
                     )
                   : section.questions;
 
-                if (matchedQuestions.length === 0) return null;
+                if (matched.length === 0) return null;
 
                 return (
                   <div key={si}>
@@ -62,7 +67,7 @@ export default function FaqPage() {
                       </div>
                     )}
                     <div className="space-y-3 sm:space-y-4">
-                      {matchedQuestions.map((item, qi) => (
+                      {matched.map((item, qi) => (
                         <AccordionItem
                           key={qi}
                           id={`${si}-${qi}`}
@@ -80,12 +85,12 @@ export default function FaqPage() {
           </div>
 
           <div className="text-center">
-            <p className="text-slate-600 mb-4 text-sm sm:text-base">Can&apos;t find the answer?</p>
+            <p className="text-slate-600 mb-4 text-sm sm:text-base">{f.cantFind}</p>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white rounded-full px-6 sm:px-8 h-9 sm:h-10 text-sm font-medium transition"
             >
-              Contact Us
+              {f.contactUs}
             </Link>
           </div>
         </div>

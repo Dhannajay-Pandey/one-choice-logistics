@@ -1,0 +1,5 @@
+{
+    "chat.agent.enabled": true,
+    "chat.agent.sandbox.enabled": "on",
+    "chat.agent.thinkingStyle": "collapsed"
+}

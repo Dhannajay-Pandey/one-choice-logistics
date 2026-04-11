@@ -21,7 +21,7 @@ export const footerData = {
   brand: {
     name: "One Choice Logistics",
     description:
-      "Your strategic partner in international logistics. We move trust, efficiency, and long-term value for your business.",
+      "At One Choice Logistics, we don't just move cargo — we move trust, efficiency, and long-term value for your business.",
     socials: [
       { name: "Facebook", icon: "facebook", url: "#" },
       { name: "LinkedIn", icon: "linkedin", url: "#" },

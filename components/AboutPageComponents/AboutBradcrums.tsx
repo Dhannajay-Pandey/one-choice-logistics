@@ -7,9 +7,10 @@ type Props = {
   title: string;
   description?: string;
   bgImage?: string;
+  homeLabel?: string;
 };
 
-export default function AboutBradcrums({ title, description, bgImage }: Props) {
+export default function AboutBradcrums({ title, description, bgImage, homeLabel = "Home" }: Props) {
   const pathname = usePathname();
 
   const pathSegments = pathname.split("/").filter(Boolean);
@@ -46,7 +47,7 @@ export default function AboutBradcrums({ title, description, bgImage }: Props) {
         )}
 
         <div className="flex items-center gap-2 text-xs sm:text-sm mb-4 text-gray-300 mt-3 sm:mt-4 flex-wrap">
-          <Link href="/">Home</Link>
+          <Link href="/">{homeLabel}</Link>
           {breadcrumbs.map((item, i) => (
             <span key={i} className="flex items-center gap-2">
               <span>/</span>

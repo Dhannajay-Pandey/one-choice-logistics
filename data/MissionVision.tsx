@@ -2,7 +2,7 @@ export const MissionVisionData = [
   {
     title: "Our Mission",
     description:
-      "To create real value for your business by improving the efficiency, cost-effectiveness, and transparency of your logistics operations. We strive to be more than a service provider — we are a partner in your growth.",
+      "To create real value for your business by improving the efficiency, cost-effectiveness, and transparency of your logistics operations. We strive to be more than a service provider. We are a partner in your growth.",
     variant: "mission" as const,
   },
   {

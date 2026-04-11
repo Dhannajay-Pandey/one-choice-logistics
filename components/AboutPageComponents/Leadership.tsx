@@ -1,22 +1,37 @@
 import Image from "next/image";
-import Leadershipdata from "@/data/Leadership";
 
-export default function Leadership() {
+type Member = {
+  name: string;
+  role: string;
+  quote: string;
+  description: string;
+  image?: string;
+  expertise: string[];
+};
+
+type Props = {
+  title: string;
+  subtitle: string;
+  expertiseLabel: string;
+  members: Member[];
+};
+
+export default function Leadership({ title, subtitle, expertiseLabel, members }: Props) {
   return (
     <section className="bg-white py-10 sm:py-12">
       <div className="container mx-auto px-4">
 
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 sm:mb-4">
-            Meet Our Leadership
+            {title}
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
-            Our team brings decades of combined experience in international logistics, ensuring your cargo is in expert hands.
+            {subtitle}
           </p>
         </div>
 
         <div className="space-y-6 sm:space-y-10">
-          {Leadershipdata.map((item, index) => {
+          {members.map((item, index) => {
             const isReverse = index % 2 !== 0;
             return (
               <div
@@ -71,7 +86,7 @@ export default function Leadership() {
                         <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
                         <rect width="20" height="14" x="2" y="6" rx="2"/>
                       </svg>
-                      Expertise
+                      {expertiseLabel}
                     </h4>
                     <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                       {item.expertise.map((exp, i) => (

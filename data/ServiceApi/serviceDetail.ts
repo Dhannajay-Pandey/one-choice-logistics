@@ -19,7 +19,7 @@ export const SeaFreight = {
     "Predictability: Regular sailing schedules and reliable transit times.",
   ],
   process: [
-    { step: "STEP 1", title: "Booking & Pickup", desc: "We arrange pickup from the supplier or receive goods at our warehouses." },
+    { step: "STEP 1", title: "Booking", desc: " We receive goods at our warehouses." },
     { step: "STEP 2", title: "Consolidation & Loading", desc: "Goods are securely packed and loaded into containers." },
     { step: "STEP 3", title: "Export Customs", desc: "Handling all necessary export documentation and clearance." },
     { step: "STEP 4", title: "Ocean Transit", desc: "Real-time tracking as your cargo crosses the ocean." },
@@ -45,7 +45,7 @@ export const AirFreight = {
     "Inventory Control: Reduced need for local warehousing due to quick replenishment.",
   ],
   process: [
-    { step: "STEP 1", title: "Pickup & Transfer", desc: "Immediate collection and transfer to the airport." },
+    { step: "STEP 1", title: "Booking", desc: "Clients send their goods directly to our warehouse in China." },
     { step: "STEP 2", title: "Security Screening", desc: "Compliance with aviation security regulations." },
     { step: "STEP 3", title: "Air Transit", desc: "Direct or consolidated flights to Dakar DSS." },
     { step: "STEP 4", title: "Airport Recovery", desc: "Quick retrieval of cargo upon landing." },
