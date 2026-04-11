@@ -35,7 +35,7 @@ export default function ContactPage() {
               <SuccessSection
                 title={c.success.title}
                 desc={c.success.desc}
-                image="/images/contact.png"
+                image="/images/contact.webp"
               />
             </div>
 
