@@ -1,115 +1,59 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { testimonials } from "@/data/testimonials/testimonials";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { testimonial } from "@/data/testimonial";
+import Image from "next/image";
 
 export default function Testimonial() {
-  const { language } = useLanguage();
-  const [current, setCurrent] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const goTo = useCallback(
-    (index: number) => {
-      if (isAnimating) return;
-      setIsAnimating(true);
-      setCurrent((index + testimonials.length) % testimonials.length);
-      setTimeout(() => setIsAnimating(false), 400);
-    },
-    [isAnimating]
-  );
-
-  useEffect(() => {
-    const timer = setInterval(() => goTo(current + 1), 5000);
-    return () => clearInterval(timer);
-  }, [current, goTo]);
-
-  const item = testimonials[current];
-  const message = language === "fr" && item.message_fr ? item.message_fr : item.message;
-
   return (
-    <section className="py-12 sm:py-20 bg-gray-100">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section className="py-16 bg-gray-100">
+      <div className="max-w-7xl mx-auto px-4">
 
-        {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-red-500 text-sm font-semibold uppercase tracking-widest mb-2">
-            {language === "fr" ? "Témoignages Clients" : "Client Testimonials"}
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
-            {language === "fr" ? "Ce que disent nos clients" : "What Our Clients Say"}
-          </h2>
-        </div>
+        <div className="grid rounded-3xl overflow-hidden shadow-xl" style={{gridTemplateColumns: '40% 60%'}}>
 
-        {/* Card */}
-        <div className="relative bg-[#0b1a2f] rounded-3xl shadow-2xl overflow-hidden">
-
-          {/* Quote icon */}
-          <div className="absolute top-6 left-6 sm:top-8 sm:left-8 opacity-20">
-            <Quote className="w-12 h-12 sm:w-16 sm:h-16 text-red-500 fill-red-500" />
-          </div>
-
-          <div
-            key={current}
-            className="px-8 pt-16 pb-10 sm:px-14 sm:pt-20 sm:pb-12 text-center transition-opacity duration-400"
-            style={{ opacity: isAnimating ? 0 : 1 }}
-          >
-            {/* Stars */}
-            <div className="flex justify-center gap-1 mb-6">
-              {Array.from({ length: item.rating }).map((_, i) => (
-                <span key={i} className="text-yellow-400 text-xl">★</span>
-              ))}
+          {/* LEFT SIDE */}
+          <div className="bg-gradient-to-r from-[#1e2a3a] to-[#2c3e50] flex items-center justify-center p-10 relative group">
+            
+            {/* Avatar */}
+            <div className="w-40 h-40 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md 
+            transition duration-500 group-hover:scale-110">
+              
+              <span className="text-6xl text-white/50">👤</span>
             </div>
 
-            {/* Message */}
-            <p className="text-slate-200 text-base sm:text-xl md:text-2xl font-light italic leading-relaxed mb-8">
-              &ldquo;{message}&rdquo;
+            {/* Glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 blur-2xl transition"></div>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="bg-[#0b1a2f] text-white p-10 md:p-12 relative">
+
+            {/* Quote Icon */}
+            <div className="text-red-500 text-5xl mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote w-12 h-12 text-red-500 mb-6 opacity-80"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg></div>
+
+            {/* Quote */}
+            <p className="text-2xl md:text-3xl font-light leading-relaxed mb-8 italic text-slate-200">
+              &ldquo;{testimonial.quote}&rdquo;
             </p>
 
-            {/* Author */}
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 rounded-full bg-red-500/20 border-2 border-red-500/40 flex items-center justify-center text-red-400 font-bold text-sm">
-                {item.initials}
-              </div>
-              <p className="text-white font-semibold text-base sm:text-lg">{item.name}</p>
-              {item.company && (
-                <p className="text-slate-400 text-sm">{item.company}</p>
-              )}
-            </div>
+            {/* Name */}
+            <h3 className="mt-6 text-lg font-semibold">
+              {testimonial.name}
+            </h3>
+
+            {/* Role */}
+            <p className="text-xl font-bold text-white">
+              {testimonial.role}
+            </p>
+
+            {/* Description */}
+            <p className="text-gray-400 text-sm mt-4 leading-relaxed">
+              {testimonial.desc}
+            </p>
+
+            {/* Hover Border Effect */}
+            <div className="absolute inset-0 border border-white/5 rounded-3xl pointer-events-none"></div>
           </div>
 
-          {/* Prev / Next */}
-          <button
-            onClick={() => goTo(current - 1)}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition"
-            aria-label="Previous"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => goTo(current + 1)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition"
-            aria-label="Next"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-6">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              className={`rounded-full transition-all duration-300 ${
-                i === current
-                  ? "w-6 h-2.5 bg-red-500"
-                  : "w-2.5 h-2.5 bg-slate-400 hover:bg-slate-600"
-              }`}
-              aria-label={`Go to testimonial ${i + 1}`}
-            />
-          ))}
         </div>
 
       </div>
