@@ -52,7 +52,7 @@ export default function TestimonialSection() {
                   <span key={i} className="text-yellow-400">&#9733;</span>
                 ))}
               </div>
-              <p className="text-slate-700 italic mb-4 sm:mb-6 text-sm sm:text-base">&ldquo;{item.message}&rdquo;</p>
+              <p className="text-slate-700 italic mb-4 sm:mb-6 text-sm sm:text-base">&ldquo;{language === "fr" && item.message_fr ? item.message_fr : item.message}&rdquo;</p>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600 text-sm">
                   {item.initials}
