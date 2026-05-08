@@ -11,7 +11,7 @@ type Props = {
 export default function GetFreeQuote({ image }: Props) {
   const { t } = useLanguage();
   return (
-    <section className="bg-gradient-to-r from-[#b31217] to-[#e52d27] text-white">
+    <section className="bg-gradient-to-r from-[#b31217] to-[#e52d27] text-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-10">
 
         {/* LEFT CONTENT */}
@@ -43,7 +43,7 @@ export default function GetFreeQuote({ image }: Props) {
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="relative flex justify-center">
+        <div className="relative flex justify-center ">
           <div className="bg-red-600/40 backdrop-blur-md rounded-3xl p-6 shadow-xl">
             <Image
               src={image}
