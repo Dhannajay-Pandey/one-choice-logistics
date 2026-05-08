@@ -11,14 +11,22 @@ export default function Testimonial() {
         <div className="grid rounded-3xl overflow-hidden shadow-xl" style={{gridTemplateColumns: '40% 60%'}}>
 
           {/* LEFT SIDE */}
-          <div className="bg-gradient-to-r from-[#1e2a3a] to-[#2c3e50] flex items-center justify-center p-10 relative group">
+          <div className="bg-gradient-to-r from-[#1e2a3a] to-[#2c3e50] flex items-center justify-center p-[0.5rem] relative group">
             
             {/* Avatar */}
-            <div className="w-40 h-40 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md 
-            transition duration-500 group-hover:scale-110">
-              
-              <span className="text-6xl text-white/50">👤</span>
-            </div>
+            <div className="relative w-full h-[500px] overflow-hidden flex items-center justify-center bg-[#2c3e50]">
+
+            {/* Center Cover Image */}
+             
+              <Image
+                src={testimonial.image}
+                alt="testimonial"
+                fill
+                className="object-cover"
+              />
+             
+
+          </div>
 
             {/* Glow */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 blur-2xl transition"></div>
