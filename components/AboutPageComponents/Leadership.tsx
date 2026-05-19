@@ -46,7 +46,7 @@ export default function Leadership({ title, subtitle, expertiseLabel, members }:
                     <div className="absolute inset-0 bg-slate-100 rounded-full transform -rotate-6"></div>
                     <div className="absolute inset-0 bg-slate-200 rounded-full transform rotate-3"></div>
                     <div className="relative z-10 w-full h-full rounded-full bg-slate-50 border-4 border-white shadow-xl overflow-hidden">
-                      <Image src={item.image} alt={item.name} fill className="object-cover" />
+                      <Image src={item.image}  fill className="object-cover" />
                     </div>
                     <div className="absolute bottom-0 right-0 z-20 bg-red-600 text-white p-2 sm:p-3 rounded-full shadow-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-6 sm:h-6">

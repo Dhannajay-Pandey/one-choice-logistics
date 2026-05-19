@@ -55,9 +55,9 @@ export default function ServiceCard({ service, reverse }: any) {
           <Link href={`/services/${service.slug}`} className="px-5 sm:px-6 py-2 rounded-full border border-slate-300 hover:bg-slate-50 text-slate-700 text-sm sm:text-base">
             {t("servicePage.learnMore")}
           </Link>
-          <button className="px-5 sm:px-6 py-2 rounded-full bg-slate-900 text-white hover:bg-slate-800 shadow text-sm sm:text-base">
+          <Link href={`/contact`} className="px-5 sm:px-6 py-2 rounded-full bg-slate-900 text-white hover:bg-slate-800 shadow text-sm sm:text-base">
             {t("servicePage.getQuote")}
-          </button>
+          </Link>
         </div>
       </div>
     </div>
