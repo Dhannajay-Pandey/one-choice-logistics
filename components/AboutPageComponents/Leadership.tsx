@@ -54,7 +54,7 @@ export default function Leadership({
                     <div className="relative z-10 w-full h-full rounded-full bg-slate-50 border-4 border-white shadow-xl overflow-hidden">
                       <Image
                         src={item.image ?? "/images/default-user.png"}
-                        alt={item.name}
+                        alt=""
                         fill
                         className="object-cover"
                       />
