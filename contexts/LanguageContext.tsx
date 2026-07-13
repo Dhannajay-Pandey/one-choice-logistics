@@ -634,7 +634,6 @@ export const translations = {
       badge: "Votre Partenaire Logistique de Confiance",
       title1: "Engagés pour l'Excellence,",
       title2: "Portés par les Résultats",
-      desc: "Notre équipe professionnelle fournit des solutions logistiques de bout en bout avec une visibilité en temps réel, un support dédié et un engagement envers l'excellence qui a gagné la confiance des entreprises à travers l'Afrique de l'Ouest.",
       desc: "Chez One Choice Logistics, nous ne déplaçons pas seulement des marchandises — nous construisons des partenariats durables. Notre équipe professionnelle fournit des solutions logistiques de bout en bout avec une visibilité en temps réel, un support dédié et un engagement envers l'excellence qui a gagné la confiance des entreprises à travers l'Afrique de l'Ouest.",
       cta1: "Obtenir un Devis",
       cta2: "À Propos",
@@ -645,14 +644,12 @@ export const translations = {
       ],
     },
     testimonial: {
-      quote: "",
-      quote: "Chez One Choice Logistics, nous ne déplaçons pas seulement des marchandises  nous déplaçons la confiance, l'efficacité et la valeur à long terme pour votre entreprise.",
+      quote: "Chez One Choice Logistics, nous ne déplaçons pas seulement des marchandises — nous déplaçons la confiance, l'efficacité et la valeur à long terme pour votre entreprise.",
       name: "Mme Fofana Mame Ndoumbé Diène",
       role: "Directrice Générale, ONE CHOICE LOGISTICS",
       desc: "Avec plus de 20 ans d'expertise en logistique internationale et gestion de la chaîne d'approvisionnement, Mme Diène apporte un leadership visionnaire à One Choice Logistics. Son engagement envers la satisfaction client a positionné l'entreprise comme une force montante dans le secteur du fret en Afrique de l'Ouest.",
     },
     footer: {
-      description: "",
       description: "Chez One Choice Logistics, nous ne déplaçons pas seulement des marchandises — nous déplaçons la confiance, l'efficacité et la valeur à long terme pour votre entreprise.",
       quickLinks: "Liens Rapides", ourServices: "Nos Services", contactUs: "Contactez-Nous",
       address: "42, Rue Tolbiac, Immeuble El Hadj M. Niang, Plateau, Dakar, Sénégal",
