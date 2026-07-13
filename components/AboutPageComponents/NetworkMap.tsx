@@ -8,7 +8,7 @@ import {
   Polyline,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import L, { type LatLngTuple } from "leaflet";
 
 // Marker icon
 const icon = L.icon({
@@ -22,7 +22,10 @@ const icon = L.icon({
 });
 
 // Locations
-const locations = [
+const locations: {
+  name: string;
+  position: LatLngTuple;
+}[] = [
   { name: "Guangzhou, China", position: [23.1291, 113.2644] },
   { name: "Yiwu, China", position: [29.3061, 120.0755] },
   { name: "Dakar, Senegal", position: [14.7167, -17.4677] },
@@ -31,7 +34,6 @@ const locations = [
 export default function NetworkMap() {
   return (
     <div className="relative w-full h-[500px]">
-      
       {/* 🌍 MAP */}
       <MapContainer
         center={[20, 40]}
@@ -60,7 +62,7 @@ export default function NetworkMap() {
       </MapContainer>
 
       {/* 🧊 LEGEND OVERLAY */}
-      <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg  z-0">
+      <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg z-0">
         <h4 className="font-bold text-slate-900 mb-2 text-sm">
           Network Map
         </h4>
@@ -79,7 +81,6 @@ export default function NetworkMap() {
           </span>
         </div>
       </div>
-
     </div>
   );
 }
