@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import BlogCard from "./BlogCard";
+import BlogCard from "@/components/BlogComponents/BlogCard";
 
 export default function BlogSection() {
   const [blogs, setBlogs] = useState([]);
