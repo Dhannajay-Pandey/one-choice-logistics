@@ -23,129 +23,119 @@ export default function Leadership({
   members,
 }: Props) {
   return (
-    <section className="bg-white py-10 sm:py-12">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 sm:mb-4">
+    <section className="bg-gradient-to-b from-slate-50 via-white to-slate-100 py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
+        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 lg:mb-16">
+          <span className="inline-block px-4 py-2 rounded-full bg-red-100 text-red-600 text-xs sm:text-sm font-semibold mb-4">
+            Leadership Team
+          </span>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
             {title}
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
+
+          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-600 leading-7 sm:leading-relaxed">
             {subtitle}
           </p>
         </div>
 
-        <div className="space-y-6 sm:space-y-10">
+        <div className="space-y-8 sm:space-y-10 lg:space-y-12">
           {members.map((item, index) => {
-            const isReverse = index % 2 !== 0;
+            const hasImage = !!item.image;
 
             return (
               <div
                 key={index}
-                className={`flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-center bg-white p-5 sm:p-8 lg:p-12 rounded-3xl shadow-lg border border-slate-100 ${
-                  isReverse ? "lg:flex-row-reverse" : ""
-                }`}
+                className="group overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border border-slate-200"
               >
-                {/* IMAGE */}
-                <div className="w-full lg:w-1/3 flex justify-center">
-                  <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64">
-                    <div className="absolute inset-0 bg-slate-100 rounded-full transform -rotate-6"></div>
-                    <div className="absolute inset-0 bg-slate-200 rounded-full transform rotate-3"></div>
-
-                    <div className="relative z-10 w-full h-full rounded-full bg-slate-50 border-4 border-white shadow-xl overflow-hidden">
+                <div
+                  className={`grid ${
+                    hasImage ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1"
+                  } ${
+                    hasImage && index % 2 !== 0
+                      ? "lg:[&>*:first-child]:order-2"
+                      : ""
+                  }`}
+                >
+                  {/* IMAGE */}
+                  {hasImage && (
+                    <div className="relative min-h-[280px] sm:min-h-[400px] lg:min-h-[450px] bg-slate-100 overflow-hidden">
                       <Image
-                        src={item.image ?? "/images/default-user.png"}
+                        src={item.image!}
                         alt=""
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                      <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8">
+                        <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                          {item.name}
+                        </h3>
+
+                        <p className="text-red-300 font-semibold text-base sm:text-lg mt-2">
+                          {item.role}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CONTENT */}
+                  <div className="flex flex-col justify-center p-5 sm:p-8 md:p-10 lg:p-12">
+                    {/* Show Name & Role only when image is not available */}
+                    {!hasImage && (
+                      <div className="mb-6 sm:mb-8">
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+                          {item.name}
+                        </h3>
+
+                        <p className="text-red-600 font-semibold text-base sm:text-lg mt-2">
+                          {item.role}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Quote */}
+                    <div className="relative mb-6 sm:mb-8">
+                      <div className="absolute -top-3 sm:-top-5 -left-2 sm:-left-3 text-[55px] sm:text-[90px] leading-none text-red-100 font-serif">
+                        "
+                      </div>
+
+                      <p className="relative text-lg sm:text-xl lg:text-2xl italic font-medium text-slate-800 leading-8 sm:leading-relaxed">
+                        {item.quote}
+                      </p>
                     </div>
 
-                    <div className="absolute bottom-0 right-0 z-20 bg-red-600 text-white p-2 sm:p-3 rounded-full shadow-lg">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="w-4 h-4 sm:w-6 sm:h-6"
-                      >
-                        <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
-                        <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CONTENT */}
-                <div className="w-full lg:w-2/3 text-center lg:text-left">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-2">
-                    {item.name}
-                  </h3>
-
-                  <p className="text-base sm:text-xl text-red-600 font-semibold mb-4 sm:mb-6">
-                    {item.role}
-                  </p>
-
-                  <div className="mb-5 sm:mb-8 relative">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-8 h-8 sm:w-10 sm:h-10 text-slate-100 absolute -top-3 -left-2 -z-10"
-                    >
-                      <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
-                      <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
-                    </svg>
-
-                    <p className="text-sm sm:text-lg text-slate-700 italic font-medium">
-                      &ldquo;{item.quote}&rdquo;
+                    {/* Description */}
+                    <p className="text-slate-600 text-base sm:text-lg leading-7 sm:leading-8 mb-6 sm:mb-8">
+                      {item.description}
                     </p>
-                  </div>
 
-                  <p className="text-slate-600 mb-5 sm:mb-8 leading-relaxed text-sm sm:text-base md:text-lg">
-                    {item.description}
-                  </p>
+                    {/* Expertise */}
+                    <div className="border-t border-slate-200 pt-6 sm:pt-8">
+                      <h4 className="text-xs sm:text-sm font-bold uppercase tracking-[2px] sm:tracking-[3px] text-slate-500 mb-4 sm:mb-5">
+                        {expertiseLabel}
+                      </h4>
 
-                  <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100 w-full">
-                    <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center justify-center lg:justify-start gap-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="w-4 h-4"
-                      >
-                        <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                        <rect width="20" height="14" x="2" y="6" rx="2" />
-                      </svg>
+                      <div className="flex flex-wrap gap-2 sm:gap-3">
+                        {item.expertise.map((exp, i) => (
+                          <span
+                            key={i}
+                            className="rounded-full bg-gradient-to-r from-red-600 to-red-500 px-4 sm:px-5 py-2 text-xs sm:text-sm text-white font-medium shadow-lg"
+                          >
+                            {exp}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-                      {expertiseLabel}
-                    </h4>
-
-                    <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-                      {item.expertise.map((exp, i) => (
-                        <span
-                          key={i}
-                          className="bg-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-slate-800 text-xs sm:text-sm font-medium shadow-sm border border-slate-100"
-                        >
-                          {exp}
-                        </span>
-                      ))}
+                    {/* Button */}
+                    <div className="mt-8 sm:mt-10">
+                      <button className="w-full sm:w-auto rounded-full border border-red-600 px-6 sm:px-7 py-3 text-red-600 font-semibold hover:bg-red-600 hover:text-white transition-all duration-300">
+                        View Profile
+                      </button>
                     </div>
                   </div>
                 </div>
