@@ -17,10 +17,40 @@ export default function ContactForm({ form }: { form: FormLabels }) {
   const [fields, setFields] = useState({
     name: "", email: "", phone: "", subject: "", message: "",
   });
+  const [status, setStatus] = useState<{ type: "success" | "error" | null; message: string }>({
+    type: null,
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(fields);
+    setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Unable to send message.");
+      }
+
+      setStatus({ type: "success", message: data.message || "Message sent successfully." });
+      setFields({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: error instanceof Error ? error.message : "An unexpected error occurred.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -33,6 +63,7 @@ export default function ContactForm({ form }: { form: FormLabels }) {
         type="text"
         placeholder={form.fullName}
         className="w-full border rounded-lg p-2"
+        value={fields.name}
         onChange={(e) => setFields({ ...fields, name: e.target.value })}
       />
 
@@ -41,6 +72,7 @@ export default function ContactForm({ form }: { form: FormLabels }) {
         type="email"
         placeholder={form.email}
         className="w-full border rounded-lg p-2"
+        value={fields.email}
         onChange={(e) => setFields({ ...fields, email: e.target.value })}
       />
 
@@ -49,6 +81,7 @@ export default function ContactForm({ form }: { form: FormLabels }) {
         type="text"
         placeholder={form.phone}
         className="w-full border rounded-lg p-2"
+        value={fields.phone}
         onChange={(e) => setFields({ ...fields, phone: e.target.value })}
       />
 
@@ -57,6 +90,7 @@ export default function ContactForm({ form }: { form: FormLabels }) {
         type="text"
         placeholder={form.subject}
         className="w-full border rounded-lg p-2"
+        value={fields.subject}
         onChange={(e) => setFields({ ...fields, subject: e.target.value })}
       />
 
@@ -65,11 +99,21 @@ export default function ContactForm({ form }: { form: FormLabels }) {
         placeholder={form.message}
         className="w-full border rounded-lg p-2"
         rows={4}
+        value={fields.message}
         onChange={(e) => setFields({ ...fields, message: e.target.value })}
       />
 
-      <button className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600">
-        {form.send}
+      {status.message ? (
+        <p className={`text-sm ${status.type === "success" ? "text-green-600" : "text-red-600"}`}>
+          {status.message}
+        </p>
+      ) : null}
+
+      <button
+        disabled={isSubmitting}
+        className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 disabled:opacity-70"
+      >
+        {isSubmitting ? "Sending..." : form.send}
       </button>
     </form>
   );
