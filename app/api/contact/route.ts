@@ -15,18 +15,34 @@ export async function POST(request: Request) {
       );
     }
 
+    const host = process.env.NODEMAILER_HOST;
+    const port = process.env.NODEMAILER_PORT;
+    const user = process.env.NODEMAILER_USER;
+    const pass = process.env.NODEMAILER_PASS;
+
+    if (!host || !port || !user || !pass) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Email delivery is not configured on the live server yet. Please set the SMTP environment variables before sending messages.",
+        },
+        { status: 500 }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
-      host: process.env.NODEMAILER_HOST,
-      port: Number(process.env.NODEMAILER_PORT || 587),
+      host,
+      port: Number(port),
       secure: false,
       auth: {
-        user: process.env.NODEMAILER_USER,
-        pass: process.env.NODEMAILER_PASS,
+        user,
+        pass,
       },
     });
 
     await transporter.sendMail({
-      from: process.env.NODEMAILER_USER,
+      from: user,
       to: "serviceclient@onechoicelogistics.com",
       replyTo: email,
       subject: `New contact form submission: ${subject}`,
@@ -53,8 +69,12 @@ ${message}
     return NextResponse.json({ success: true, message: "Message sent successfully." });
   } catch (error) {
     console.error("Contact form email error:", error);
+    const message = error instanceof Error ? error.message : "Unknown SMTP error";
     return NextResponse.json(
-      { success: false, message: "Unable to send your message right now. Please try again later." },
+      {
+        success: false,
+        message: `Unable to send your message right now. ${message}`,
+      },
       { status: 500 }
     );
   }
