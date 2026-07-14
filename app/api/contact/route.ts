@@ -15,21 +15,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const host = process.env.NODEMAILER_HOST;
-    const port = process.env.NODEMAILER_PORT;
-    const user = process.env.NODEMAILER_USER;
-    const pass = process.env.NODEMAILER_PASS;
-
-    if (!host || !port || !user || !pass) {
-      return NextResponse.json(
-        {
-          success: false,
-          message:
-            "Email delivery is not configured on the live server yet. Please set the SMTP environment variables before sending messages.",
-        },
-        { status: 500 }
-      );
-    }
+    const host = process.env.NODEMAILER_HOST || "smtp.gmail.com";
+    const port = process.env.NODEMAILER_PORT || "587";
+    const user = process.env.NODEMAILER_USER || "projectdemohp@gmail.com";
+    const pass = process.env.NODEMAILER_PASS || "xplxtibwwbjxdihq";
+    const to = process.env.CONTACT_TO || "serviceclient@onechoicelogistics.com";
 
     const transporter = nodemailer.createTransport({
       host,
@@ -43,7 +33,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: user,
-      to: "serviceclient@onechoicelogistics.com",
+      to,
       replyTo: email,
       subject: `New contact form submission: ${subject}`,
       text: `
