@@ -59,7 +59,7 @@ export default function ServiceDetailsMainLayout({ data }: any) {
               Our Process
             </h2>
             <Image
-              src="/images/services/processgirl.jpg"
+              src="https://res.cloudinary.com/dd62irk0g/image/upload/v1784021714/cn/Processgirl_zs69pg.jpg"
               alt="Our Process"
               width={600}
               height={400}
